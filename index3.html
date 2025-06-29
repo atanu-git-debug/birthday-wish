@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Birthday Message</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .heading {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #d94f70;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .message-card {
+            background: #fff5e6;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            padding: 25px;
+            position: relative;
+            box-sizing: border-box;
+            max-height: 80vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* For Firefox */
+        }
+
+        .message-card::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
+        }
+
+        .message-card p {
+            font-size: 1.2rem;
+            color: #5a5a5a;
+            margin: 15px 0;
+            line-height: 1.6;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .fireworks {
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: url('https://i.imgur.com/5rV1k3k.png') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: -1;
+            animation: sparkle 3s infinite;
+        }
+
+        .floating-elements {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-elements span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: #ffe4e1;
+            border-radius: 50%;
+            animation: float 5s linear infinite;
+        }
+
+        .floating-elements span:nth-child(odd) {
+            background: #ffb6c1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .button {
+            margin-top: 20px;
+            font-family: 'Roboto', sans-serif;
+            padding: 12px 25px;
+            background-color: #d94f70;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            animation: popIn 2s ease-out;
+        }
+
+        .button:hover {
+            background-color: #b43b59;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function sendWhatsAppMessage() {
+            const phoneNumber = "+919083663157"; // Replace with the recipient's WhatsApp number
+            const message = "Love you the most";
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <div class="floating-elements">
+        <span style="left: 10%; animation-duration: 6s;"></span>
+        <span style="left: 30%; animation-duration: 7s;"></span>
+        <span style="left: 50%; animation-duration: 5s;"></span>
+        <span style="left: 70%; animation-duration: 8s;"></span>
+        <span style="left: 90%; animation-duration: 6.5s;"></span>
+    </div>
+    <h1 class="heading">You're Amazing!</h1>
+    <div class="message-card">
+        <div class="fireworks"></div>
+        <p>
+            Happy Birthday, my dearest love! 🌹 On this auspicious day, I find myself overwhelmed with gratitude for your existence, which has illuminated my life in ways words can scarcely describe. Your presence is the symphony to my silence, the poetry in my prose, and the harmony in my chaotic world. 🎼✨
+
+            You possess a beauty so ethereal and a heart so pure that it leaves me in perpetual awe. Today, I wish to honor not just the day you graced this earth but the countless ways you have touched my soul. May your day be adorned with joy as radiant as your smile and moments as extraordinary as your spirit. 🎂💕
+
+            As we traverse this journey of life together, know that my affection for you deepens with each passing day. I am eternally grateful for you, my muse, my confidante, my everything. Here’s to celebrating the remarkable being that you are, today and forevermore. ❤️🎉
+        </p>
+        <button class="button" onclick="sendWhatsAppMessage()">Love You ❤️</button>
+    </div>
+</body>
+</html>

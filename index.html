@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>June 2025 Calendar</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffd6e8, #ffe0f0);
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px 10px;
+      color: #d6336c;
+      font-size: 2em;
+      text-shadow: 1px 1px #fff;
+    }
+
+    .calendar-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    table {
+      width: 90%;
+      max-width: 500px;
+      border-collapse: collapse;
+      background: linear-gradient(to bottom right, #ffe6f0, #ffc1e3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    th, td {
+      width: 14.28%;
+      height: 60px;
+      text-align: center;
+      border: 1px solid #f8bbd0;
+      font-size: 16px;
+      color: #880e4f;
+    }
+
+    .clickable {
+      background: linear-gradient(to right, #f06292, #f8bbd0);
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      box-shadow: 0 0 10px rgba(240, 98, 146, 0.6);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .clickable:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(240, 98, 146, 0.9);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(240, 98, 146, 0.6);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(240, 98, 146, 0.9);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(240, 98, 146, 0.6);
+      }
+    }
+
+    @media (max-width: 480px) {
+      th, td {
+        height: 50px;
+        font-size: 14px;
+      }
+
+      .clickable {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+
+    .hearts-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff4081;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff4081;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -15px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(200px) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>June 2025 Calendar</h1>
+
+  <div class="calendar-wrapper">
+    <table>
+      <tr>
+        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+        <th>Thu</th><th>Fri</th><th>Sat</th>
+      </tr>
+      <tr>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+      </tr>
+      <tr>
+        <td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+      </tr>
+      <tr>
+        <td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
+      </tr>
+      <tr>
+        <td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
+      </tr>
+      <tr>
+        <td><div class="clickable" onclick="goToDate()">29</div></td><td>30</td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="hearts-container" id="hearts"></div>
+
+  <script>
+    function goToDate() {
+      window.location.href = "june29.html";
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      const container = document.getElementById('hearts');
+      heart.style.left = Math.random() * container.offsetWidth + 'px';
+      container.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 600);
+  </script>
+
+</body>
+</html>

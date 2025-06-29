@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&family=Courgette&family=Lobster&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ffc0cb, #ff69b4);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: #ffe4e1;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .card h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            color: #ff6f61;
+        }
+
+        .card p {
+            font-family: 'Courgette', cursive;
+            font-size: 1rem;
+            color: #444;
+            margin: 10px 0;
+        }
+
+        .button {
+            font-family: 'Lobster', cursive;
+            padding: 10px 20px;
+            background-color: #d98c9a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #c07284;
+            transform: scale(1.05);
+        }
+
+        .balloons {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            right: -100px;
+            bottom: -100px;
+            background: url('https://i.imgur.com/v7icG3j.png') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: -1;
+        }
+    </style>
+    <script>
+        function redirectToPage() {
+            window.location.href = 'finalMessage.html'; // Replace with your desired URL
+        }
+
+        function handleClick(button) {
+            redirectToPage();
+        }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <div class="balloons"></div>
+        <h1>Happy Birthday!</h1>
+        <p>May your day be filled with love, laughter, and endless joy. Here's to making beautiful memories!</p>
+        <button class="button" onclick="handleClick(this)">Message for You</button>
+    </div>
+</body>
+</html>
